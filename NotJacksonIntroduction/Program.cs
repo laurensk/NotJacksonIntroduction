@@ -1,4 +1,7 @@
-﻿using System.Text.Json;
-using NotJacksonIntroduction.Models;
+﻿using NotJacksonIntroduction;
 
-var classes = JsonSerializer.Deserialize<List<Class>>(File.ReadAllText(Directory.GetCurrentDirectory() + "/Resources/examdb.json"))!;
+var context = new ClassesContext();
+
+var classes = context.GetAllClasses();
+
+// do something with all classes
