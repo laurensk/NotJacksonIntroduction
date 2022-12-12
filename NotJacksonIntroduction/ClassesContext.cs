@@ -20,9 +20,9 @@ public class ClassesContext
     public List<Student> GetStudentsByClassAndExamDuration(string className, TimeSpan examDuration)
     {
         return Classes
-            .Where(c => c.ClassName == "3BHIF")
+            .Where(c => c.ClassName == className)
             .SelectMany(c => c.Students)
-            .Where(s => s.Exams.Any(e => e.Duration == TimeSpan.FromMinutes(30)))
+            .Where(s => s.Exams.Any(e => e.Duration == examDuration))
             .OrderBy(s => s.LastName)
             .ToList();
     }
